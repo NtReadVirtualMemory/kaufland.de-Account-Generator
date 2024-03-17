@@ -151,7 +151,7 @@ def GenerateAccount():
         if match:
             EmailCode = match.group(1)
         else:
-            print("Failed -> No Code Found!")
+            print("Account Failed -> No Code Found!")
             return None
 
 
