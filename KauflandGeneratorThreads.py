@@ -7,7 +7,7 @@ import os
 import threading
 
 
-AccountsToGenerate = 3
+AccountsToGenerate = 30
 
 def GenerateAccount():
     url = "https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=50000"
@@ -151,7 +151,7 @@ def GenerateAccount():
         if match:
             EmailCode = match.group(1)
         else:
-            print("ERROR! NO CODE FOUND!!!")
+            print("Failed -> No Code Found!")
             return None
 
 
@@ -187,7 +187,10 @@ def GenerateAccount():
 
 
 def thread_function():
-    GenerateAccount()
+    try:
+        GenerateAccount()
+    except:
+        IDontCare = True
 
 def main():
     threads = []
